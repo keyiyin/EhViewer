@@ -21,17 +21,22 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import android.os.Build;
+
 import com.hippo.ehviewer.client.EhUtils;
-import edu.emory.mathcs.backport.java.util.Arrays;
+
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.List;
 import okio.BufferedSource;
 import okio.Okio;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.ParameterizedRobolectricTestRunner;
+import org.robolectric.annotation.Config;
 
 @RunWith(ParameterizedRobolectricTestRunner.class)
+@Config(sdk = Build.VERSION_CODES.Q)
 public class GalleryListParserTest {
 
   private static final String E_MINIMAL = "GalleryListParserTestEMinimal.html";
