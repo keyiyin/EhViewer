@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-apply plugin: 'java'
+apply plugin: 'java-library'
 
 task executeDaoGenerator(type:JavaExec) {
     main = 'com.hippo.ehviewer.daogenerator.Main'
@@ -22,8 +22,13 @@ task executeDaoGenerator(type:JavaExec) {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'org.greenrobot:greendao-generator:2.2.0'
-    compile 'org.jboss.forge.roaster:roaster-api:2.20.1.Final'
-    compile 'org.jboss.forge.roaster:roaster-jdt:2.20.1.Final'
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api 'org.greenrobot:greendao-generator:2.2.0'
+    api 'org.jboss.forge.roaster:roaster-api:2.20.1.Final'
+    api 'org.jboss.forge.roaster:roaster-jdt:2.20.1.Final'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
